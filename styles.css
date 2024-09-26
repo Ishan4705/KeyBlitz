@@ -89,3 +89,30 @@ div.word {
     color:#f55;
 }
 
+@keyframes blink {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+#cursor {
+    display: none;
+    width: 2px;
+    height: 1.5rem;
+    background: #FFA500;
+    position: fixed;
+    top: 190px;
+    left: 85px;
+    animation: blink .5s infinite;
+}
+
+#game:focus #cursor {
+    display: block;
+}
+
