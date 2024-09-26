@@ -5,7 +5,7 @@ function addClass(ele,name) {
     ele.className += ' ' + name;
 }
 function removeClass(ele,name) {
-    ele.className= el.className.replace(name,'');
+    ele.className= ele.className.replace(name,'');
 }
 
 function randomword(){
@@ -32,7 +32,16 @@ document.getElementById('game').addEventListener('keyup',event=>{
     const key=event.key;
     const currentLetter=document.querySelector('.letter.current');
     const expected=currentLetter.innerHTML;
-    console.log({key,expected});
+    const isletter= key.length===1 && key !== ' ';
+    const isSpace=key===' ';
+    // console.log({key,expected});
+    if(isletter){
+        if(currentLetter){
+        addClass(currentLetter,key===expected ?'correct':'incorrect');
+        removeClass(currentLetter,'current');
+        addClass(currentLetter.nextSibling,'current');
+        }
+    }
 })
 
 newGame();
